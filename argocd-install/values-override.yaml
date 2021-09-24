@@ -49,6 +49,23 @@ server:
         automated:
           selfHeal: true
           prune: true
+    - name: jenkins
+      namespace: argo-cd
+      destination:
+        namespace: argo-cd
+        server: https://kubernetes.default.svc
+      project: jenkins
+      source:
+        path: jenkins
+        repoURL: https://github.com/argoproj/argoproj-deployments
+        targetRevision: HEAD
+        directory:
+          recurse: true
+          jsonnet: {}
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
     - name: argocd-appprojects
       namespace: argo-cd
       destination:
