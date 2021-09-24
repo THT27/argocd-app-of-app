@@ -60,7 +60,7 @@ server:
           version: v2
       destination:
         server: 'https://kubernetes.default.svc'
-        namespace: argo-cd
+        namespace: sample-app
       ignoreDifferences:
       - kind: Secret
         jsonPointers:
