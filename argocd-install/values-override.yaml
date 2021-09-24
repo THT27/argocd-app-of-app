@@ -62,8 +62,7 @@ server:
         kind: Secret
       source:
         path: jenkins/
-        repoURL: 
-          - https://github.com/ikamd0712/argocd-app-of-app.git
+        repoURL: https://github.com/ikamd0712/argocd-app-of-app.git
         targetRevision: HEAD
         directory:
           recurse: true
