@@ -51,21 +51,20 @@ server:
           prune: true
     - name: jenkins
       namespace: argo-cd
-      destination:
-        namespace: argo-cd
-        server: https://kubernetes.default.svc
       project: argocd
       source:
-        path: jenkins/
-        repoURL: https://github.com/ikamd0712/argocd-app-of-app.git
+        repoURL: 'https://github.com/argoproj/argoproj-deployments'
+        path: jenkins
         targetRevision: HEAD
-        directory:
-          recurse: true
-          jsonnet: {}
-      syncPolicy:
-        automated:
-          selfHeal: true
-          prune: true
+        helm:
+          version: v2
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: argo-cd
+      ignoreDifferences:
+      - kind: Secret
+        jsonPointers:
+          - /data/jenkins-admin-password
     - name: argocd-appprojects
       namespace: argo-cd
       destination:
