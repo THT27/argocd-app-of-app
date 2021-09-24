@@ -2,7 +2,7 @@
 # kind: Application
 # metadata:
 #   name: sample-jenkins-app
-#   namespace: argo-cd
+#   namespace: argocd
 # spec:
 #   destination:
 #     namespace: jenkins-app
@@ -22,7 +22,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: jenkins
-  namespace: argo-cd
+  namespace: argocd
 spec:
   source:
     path: jenkins
@@ -30,8 +30,8 @@ spec:
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: argo-cd
-  project: sample-project
+    namespace: argocd
+  project: default
   ignoreDifferences:
   - group: ''
     jsonPointers:

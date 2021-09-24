@@ -1,10 +1,10 @@
 ## ArgoCD configuration
-## Ref: https://github.com/argoproj/argo-cd
+## Ref: https://github.com/argoproj/argocd
 ##
 ## Server
 server:
   ## ArgoCD config
-  ## reference https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/argocd-cm.yaml
+  ## reference https://github.com/argoproj/argocd/blob/master/docs/operator-manual/argocd-cm.yaml
   configEnabled: true
   config:
     repositories: |
@@ -15,9 +15,9 @@ server:
         url: https://argoproj.github.io/argo-helm
   additionalApplications: 
     - name: argocd
-      namespace: argo-cd
+      namespace: argocd
       destination:
-        namespace: argo-cd
+        namespace: argocd
         server: https://kubernetes.default.svc
       project: argocd
       source:
@@ -26,16 +26,16 @@ server:
           valueFiles:
           - values.yaml
           - ../values-override.yaml
-        path: argocd-install/argo-cd
+        path: argocd-install/argocd
         repoURL: https://github.com/ikamd0712/argocd-app-of-app.git
         targetRevision: HEAD
       syncPolicy:
         syncOptions:
         - CreateNamespace=true
     - name: argocd-apps
-      namespace: argo-cd
+      namespace: argocd
       destination:
-        namespace: argo-cd
+        namespace: argocd
         server: https://kubernetes.default.svc
       project: argocd
       source:
@@ -50,11 +50,11 @@ server:
           selfHeal: true
           prune: true
     - name: jenkins
-      namespace: argo-cd
+      namespace: argocd
       destination:
-        namespace: argo-cd
+        namespace: argocd
         server: https://kubernetes.default.svc
-      project: sample-project
+      project: default
       source:
         path: jenkins/
         repoURL: https://github.com/ikamd0712/argocd-app-of-app.git
@@ -67,9 +67,9 @@ server:
           selfHeal: true
           prune: true
     - name: argocd-appprojects
-      namespace: argo-cd
+      namespace: argocd
       destination:
-        namespace: argo-cd
+        namespace: argocd
         server: https://kubernetes.default.svc
       project: argocd
       source:
@@ -85,14 +85,14 @@ server:
           prune: true
   additionalProjects: 
   - name: argocd
-    namespace: argo-cd
+    namespace: argocd
     additionalLabels: {}
     additionalAnnotations: {}
     description: Argocd Project
     sourceRepos:
     - '*'
     destinations:
-    - namespace: argo-cd
+    - namespace: argocd
       server: https://kubernetes.default.svc
     clusterResourceWhitelist:
     - group: '*'
