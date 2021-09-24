@@ -55,6 +55,11 @@ server:
         namespace: argo-cd
         server: https://kubernetes.default.svc
       project: argocd
+      ignoreDifferences:
+      - group: ''
+        jsonPointers:
+        - /data/jenkins-admin-password
+        kind: Secret
       source:
         path: jenkins/
         repoURL: https://github.com/ikamd0712/argocd-app-of-app.git
