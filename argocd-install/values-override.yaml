@@ -98,3 +98,4 @@ server:
       kind: '*'
     orphanedResources:
       warn: false
+      
