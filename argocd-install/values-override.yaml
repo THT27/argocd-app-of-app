@@ -54,7 +54,7 @@ server:
       destination:
         namespace: argo-cd
         server: https://kubernetes.default.svc
-      project: default
+      project: argocd
       source:
         path: jenkins/
         repoURL: https://github.com/ikamd0712/argocd-app-of-app.git
