@@ -22,7 +22,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: jenkins
-  namespace: argocd
+  namespace: argo-cd
 spec:
   source:
     path: jenkins
