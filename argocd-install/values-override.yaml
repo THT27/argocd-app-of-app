@@ -54,23 +54,41 @@ server:
       destination:
         namespace: argo-cd
         server: https://kubernetes.default.svc
-      project: argocd
-      ignoreDifferences:
-      - group: ''
-        jsonPointers:
-        - /data/jenkins-admin-password
-        kind: Secret
+      project: jenkins
       source:
-        path: jenkins/
+        helm:
+          version: v3
+          valueFiles:
+          - values.yaml
+          - ../values-override.yaml
+        path: jenkins
         repoURL: https://github.com/ikamd0712/argocd-app-of-app.git
         targetRevision: HEAD
-        directory:
-          recurse: true
-          jsonnet: {}
       syncPolicy:
-        automated:
-          selfHeal: true
-          prune: true
+        syncOptions:
+        - CreateNamespace=true
+    # - name: jenkins
+    #   namespace: argo-cd
+    #   destination:
+    #     namespace: argo-cd
+    #     server: https://kubernetes.default.svc
+    #   project: argocd
+    #   ignoreDifferences:
+    #   - group: ''
+    #     jsonPointers:
+    #     - /data/jenkins-admin-password
+    #     kind: Secret
+    #   source:
+    #     path: jenkins/
+    #     repoURL: https://github.com/ikamd0712/argocd-app-of-app.git
+    #     targetRevision: HEAD
+    #     directory:
+    #       recurse: true
+    #       jsonnet: {}
+    #   syncPolicy:
+    #     automated:
+    #       selfHeal: true
+    #       prune: true
     - name: argocd-appprojects
       namespace: argo-cd
       destination:
