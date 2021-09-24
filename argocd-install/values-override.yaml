@@ -51,7 +51,7 @@ server:
           prune: true
     - name: jenkins
       namespace: argo-cd
-      project: argocd
+      project: sample-app
       source:
         repoURL: https://github.com/ikamd0712/argoproj-deployments.git
         path: jenkins
