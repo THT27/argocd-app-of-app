@@ -2,7 +2,7 @@
 DIRNAME=`dirname $0`
 
 if [ -z ${ARGOCD_NS+x} ];then
-  ARGOCD_NS='argocd'
+  ARGOCD_NS='argo-cd'
 fi
 
 if [ -z ${1+x} ]; then
@@ -22,7 +22,7 @@ echo "INFO: Argocd will be installed on $ARGOCD_NS namespace with values file $V
 echo -n "Do you want to proceed? [y/n]: "
 read ans
 if [ "$ans" == "y" ]; then
-  helm upgrade --install argocd ./argo-cd \
+  helm upgrade --install argo-cd ./argo-cd \
     --namespace=$ARGOCD_NS \
     --create-namespace \
     -f $VALUES_FILE
