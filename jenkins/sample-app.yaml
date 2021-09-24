@@ -18,28 +18,28 @@
 #     automated:
 #       selfHeal: true
 #       prune: true
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: jenkins
-  namespace: argo-cd
-spec:
-  source:
-    path: jenkins
-    repoURL: https://github.com/ikamd0712/argocd-app-of-app.git
-    targetRevision: HEAD
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: sample-app
-  project: default
-  ignoreDifferences:
-  - group: ''
-    jsonPointers:
-    - /data/jenkins-admin-password
-    kind: Secret
-  syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
-    automated:
-      selfHeal: true
-      prune: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: jenkins
+#   namespace: argo-cd
+# spec:
+#   source:
+#     path: jenkins
+#     repoURL: https://github.com/ikamd0712/argocd-app-of-app.git
+#     targetRevision: HEAD
+#   destination:
+#     server: 'https://kubernetes.default.svc'
+#     namespace: sample-app
+#   project: default
+#   ignoreDifferences:
+#   - group: ''
+#     jsonPointers:
+#     - /data/jenkins-admin-password
+#     kind: Secret
+#   syncPolicy:
+#     syncOptions:
+#     - CreateNamespace=true
+#     automated:
+#       selfHeal: true
+#       prune: true
