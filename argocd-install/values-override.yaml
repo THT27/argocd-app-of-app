@@ -54,7 +54,7 @@ server:
       destination:
         namespace: argo-cd
         server: https://kubernetes.default.svc
-      project: jenkins
+      project: argocd
       source:
         helm:
           version: v3
