@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: sample-app
-  namespace: argo-cd
+  namespace: argocd
 spec:
   destination:
     namespace: sample-app
@@ -10,7 +10,7 @@ spec:
   project: sample-project
   source:
     path: sample-app/
-    repoURL: https://github.com/ikamd0712/argocd-app-of-app.git
+    repoURL: https://github.com/kurtburak/argocd.git
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
