@@ -10,7 +10,7 @@ spec:
   project: sample-jenkins-project
   source:
     path: jenkins/
-    repoURL: https://github.com/argoproj/argoproj-deployments
+    repoURL: https://github.com/ikamd0712/argocd-app-of-app.git
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
