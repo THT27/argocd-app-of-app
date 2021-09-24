@@ -53,7 +53,7 @@ server:
       namespace: argo-cd
       project: argocd
       source:
-        repoURL: 'https://github.com/argoproj/argoproj-deployments'
+        repoURL: https://github.com/ikamd0712/argoproj-deployments.git
         path: jenkins
         targetRevision: HEAD
         helm:
