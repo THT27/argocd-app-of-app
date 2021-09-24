@@ -54,10 +54,10 @@ server:
       destination:
         namespace: argo-cd
         server: https://kubernetes.default.svc
-      project: jenkins
+      project: sample-project
       source:
-        path: jenkins
-        repoURL: https://github.com/argoproj/argoproj-deployments
+        path: jenkins/
+        repoURL: https://github.com/ikamd0712/argocd-app-of-app.git
         targetRevision: HEAD
         directory:
           recurse: true
