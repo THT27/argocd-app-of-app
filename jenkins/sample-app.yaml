@@ -31,7 +31,7 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argo-cd
-  project: default
+  project: sample-project
   ignoreDifferences:
   - group: ''
     jsonPointers:
